@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: milestone-1-db
+  labels:
+    app: m1-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: m1-db
+  template:
+    metadata:
+      labels:
+        app: m1-db
+    spec:
+      containers:
+      - name: postgres
+        image: postgres
+        env:
+          - name: POSTGRES_PASSWORD
+            value: mysecretpassword
