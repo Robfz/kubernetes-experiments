@@ -21,10 +21,10 @@ app.use((req, res, next) => {
 app.get('/', async (req, res) => {
   const now = new Date();
 
-  await req.connection.query(
-    'INSERT INTO count VALUES(DEFAULT, to_timestamp($1))',
-    [now.getTime() / 1000]
-  );
+  // await req.connection.query(
+  //   'INSERT INTO count VALUES(DEFAULT, to_timestamp($1))',
+  //   [now.getTime() / 1000]
+  // );
 
   res.json({
 		success: true,
