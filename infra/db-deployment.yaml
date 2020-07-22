@@ -14,9 +14,18 @@ spec:
       labels:
         app: m1-db
     spec:
+      volumes:
+      - name: pv0001-storage
+        persistentVolumeClaim:
+          claimName: pv0001-claim
       containers:
       - name: postgres
         image: postgres
         env:
-          - name: POSTGRES_PASSWORD
-            value: mysecretpassword
+        - name: POSTGRES_PASSWORD
+          value: mysecretpassword
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
+        volumeMounts:
+        - name: pv0001-storage
+          mountPath: /var/lib/postgresql/data/pgdata
