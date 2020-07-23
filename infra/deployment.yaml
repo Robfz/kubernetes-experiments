@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: milestone-1
-        image: robfz/m1:v0.22
+        image: robfz/m1:v0.25
         ports:
-          - containerPort: 3000
+        - containerPort: 3000
